@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     fun request(view: View) {
         val textView = findViewById<TextView>(R.id.userId)
         if (textView.text.isEmpty())
-            Toast.makeText(this, "Пустая сторока!!", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Поле не может быть пустым!", Toast.LENGTH_LONG).show()
         else {
             val queue = Volley.newRequestQueue(this)
             val url = "https://jsonplaceholder.typicode.com/users/${textView.text}/posts"
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     //println(post)
                 },
-                { println("That didn't work!") })
+                { println("Ошибка") })
 
             // Add the request to the RequestQueue.
             queue.add(stringRequest)
